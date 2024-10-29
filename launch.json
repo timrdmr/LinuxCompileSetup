@@ -1,0 +1,35 @@
+// debugging config for vscode remote development
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to QEMU",
+            "stopAtEntry": false, // seems to have no effect
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/vmlinux",
+            "setupCommands": [
+                {
+                    "description": "Set architecture to i386:x86-64:intel",
+                    "text": "set arch i386:x86-64:intel"
+                },
+                {
+                    "description": "Add safe path for auto-loading",
+                    "text": "add-auto-load-safe-path ${workspaceFolder}"
+                },
+                {
+                    "description": "Connect to QEMU remote target",
+                    "text": "target remote :1234"
+                },
+                { "text": "set output-radix 16" } // display values as hex
+            ],
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "cwd": "${workspaceFolder}",
+            "externalConsole": false,
+            "logging": {
+                "engineLogging": true
+            }
+        }
+    ]
+}

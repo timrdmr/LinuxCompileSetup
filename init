@@ -1,0 +1,7 @@
+#!/bin/sh
+# source: https://medium.com/@ThyCrow/compiling-the-linux-kernel-and-creating-a-bootable-iso-from-it-6afb8d23ba22
+mount -t devtmpfs none /dev
+mount -t proc none /proc
+mount -t sysfs none /sys
+echo "Welcome to my Linux!"
+exec /bin/sh
